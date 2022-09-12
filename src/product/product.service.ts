@@ -32,4 +32,8 @@ export class ProductService {
   ): Promise<Product> {
     return await this.model.findByIdAndUpdate(id, updateProductDto).exec();
   }
+
+  async deleteProduct(id: string) {
+    return this.model.deleteOne({ _id: id }).exec()
+  }
 }
